@@ -1,0 +1,156 @@
+.bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.bg-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.46) saturate(1.05) contrast(1.06);
+}
+
+.bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(34, 20, 73, 0.2), rgba(29, 13, 63, 0.7)),
+    radial-gradient(circle at 15% 18%, rgba(255, 93, 162, 0.22), transparent 42%),
+    radial-gradient(circle at 86% 72%, rgba(137, 99, 252, 0.28), transparent 38%),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.04) 0px,
+      rgba(255, 255, 255, 0.04) 1px,
+      rgba(0, 0, 0, 0) 1px,
+      rgba(0, 0, 0, 0) 4px
+    );
+}
+
+.float,
+.spark,
+.sticker {
+  position: absolute;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
+.float {
+  width: clamp(72px, 22vw, 140px);
+  filter: drop-shadow(0 7px 12px rgba(0, 0, 0, 0.3));
+  animation: bob 6s ease-in-out infinite alternate;
+}
+
+.balloon-a {
+  top: 2%;
+  left: 4%;
+}
+
+.balloon-b {
+  top: 5%;
+  right: 4%;
+  animation-delay: 1s;
+}
+
+.balloon-c {
+  bottom: 20%;
+  left: 12%;
+  animation-duration: 7.2s;
+}
+
+.spark {
+  width: clamp(20px, 7vw, 42px);
+  opacity: 0.95;
+  animation: twinkle 1.6s steps(2) infinite;
+}
+
+.spark-a {
+  top: 19%;
+  right: 22%;
+}
+
+.spark-b {
+  top: 56%;
+  left: 12%;
+  animation-delay: 0.5s;
+}
+
+.spark-c {
+  bottom: 15%;
+  right: 10%;
+  animation-delay: 1s;
+}
+
+.sticker {
+  width: clamp(52px, 14vw, 92px);
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.3));
+  opacity: 0.92;
+}
+
+.sway-left {
+  animation: swayLeft 4.8s ease-in-out infinite;
+}
+
+.sway-right {
+  animation: swayRight 5.2s ease-in-out infinite;
+}
+
+.st-1 {
+  top: 17%;
+  left: 2%;
+}
+
+.st-2 {
+  bottom: 16%;
+  right: 2%;
+}
+
+.st-3 {
+  top: 58%;
+  right: 14%;
+}
+
+.st-4 {
+  top: 30%;
+  right: 3%;
+}
+
+@keyframes bob {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  65% {
+    opacity: 1;
+  }
+  66%,
+  100% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes swayLeft {
+  0%,
+  100% {
+    transform: rotate(-6deg) translateY(0);
+  }
+  50% {
+    transform: rotate(4deg) translateY(-4px);
+  }
+}
+
+@keyframes swayRight {
+  0%,
+  100% {
+    transform: rotate(5deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-4deg) translateY(-5px);
+  }
+}

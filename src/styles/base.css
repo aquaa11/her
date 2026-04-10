@@ -1,0 +1,163 @@
+:root {
+  --ink: #2d1654;
+  --text: #fff9ff;
+  --soft-text: #ffeafe;
+  --pink: #ff79bb;
+  --rose: #ff5da2;
+  --cyan: #70f2e1;
+  --mint: #6cf8cd;
+  --yellow: #ffe279;
+  --panel-bg: linear-gradient(170deg, rgba(112, 77, 188, 0.58) 0%, rgba(63, 37, 118, 0.66) 55%, rgba(45, 24, 87, 0.72) 100%);
+  --panel-border: #ffdaf1;
+  --panel-shadow: 0 12px 28px rgba(12, 5, 25, 0.44);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text);
+  background: #12082a;
+}
+
+#app,
+.pixel-app {
+  min-height: 100vh;
+}
+
+.pixel-app {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 14px 34px;
+  overflow-y: auto;
+  overflow-x: visible;
+  -webkit-overflow-scrolling: touch;
+  opacity: 0;
+  transform: translate(-50%, calc(-50% + 14px)) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.screen.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+.panel-card {
+  border: 2px solid var(--panel-border);
+  background: var(--panel-bg);
+  box-shadow: var(--panel-shadow);
+  backdrop-filter: blur(5px);
+}
+
+.panel-card {
+  border-radius: 22px;
+  width: min(560px, 100%);
+  margin: auto;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+h1 {
+  font-family: "Barriecito", sans-serif;
+  color: #fff5dc;
+  line-height: 1;
+  text-shadow: 2px 3px 0 rgba(45, 22, 84, 0.6);
+  font-size: clamp(2rem, 10vw, 3.2rem);
+}
+
+h2 {
+  font-family: "Jersey 10", sans-serif;
+  color: #fffceb;
+  letter-spacing: 0.03em;
+  font-size: clamp(1.7rem, 8vw, 2.6rem);
+}
+
+.chip {
+  margin: 0 auto 10px;
+  display: inline-flex;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  padding: 7px 16px;
+  font-family: "Jersey 10", sans-serif;
+  font-size: 1.25rem;
+  background: linear-gradient(90deg, rgba(255, 121, 187, 0.34), rgba(112, 242, 225, 0.3));
+}
+
+.pixel-btn {
+  width: 100%;
+  border: 2px solid #fff8d6;
+  border-radius: 14px;
+  padding: 13px 16px;
+  font-family: "Jersey 10", sans-serif;
+  font-size: 1.75rem;
+  color: #351649;
+  background: linear-gradient(180deg, #ffe98f, #ffbe79);
+  cursor: pointer;
+  box-shadow: 0 7px 0 #cc8c4f;
+  transition: transform 0.15s ease;
+}
+
+.pixel-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 #cc8c4f;
+}
+
+.fx-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.burst-pixel {
+  position: absolute;
+  width: 26px;
+  image-rendering: pixelated;
+  animation: burstOut 0.95s ease forwards;
+}
+
+@keyframes burstOut {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(0.9);
+  }
+  to {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(1.2);
+  }
+}
+
+@media (min-width: 680px) {
+  .screen {
+    padding: 28px 24px;
+    align-items: center;
+  }
+
+  .panel-card {
+    width: min(980px, 100%);
+  }
+}

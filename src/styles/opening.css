@@ -1,0 +1,181 @@
+.opening-card {
+  padding: 24px 18px 20px;
+  text-align: center;
+  margin-top: 14px;
+}
+
+.type-line {
+  margin: 0;
+  min-height: 1.8rem;
+  font-family: "Jersey 10", sans-serif;
+  color: var(--soft-text);
+  font-size: clamp(1.2rem, 5.4vw, 1.9rem);
+}
+
+.top-cast {
+  position: relative;
+  margin: 14px 0 18px;
+  min-height: 180px;
+}
+
+.duo-wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(170px, 58vw);
+    border-radius: 20px;
+
+  animation: duoBob 3.8s ease-in-out infinite;
+}
+
+.duo-center-photo {
+    border-radius: 20px;
+
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.28));
+}
+
+.char-main {
+  width: 100%;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.28));
+  animation: duoBlinkRotate 4.6s ease-in-out infinite;
+}
+
+.opening-deco {
+  position: absolute;
+  image-rendering: pixelated;
+  pointer-events: none;
+  filter: drop-shadow(0 5px 8px rgba(8, 2, 18, 0.32));
+}
+
+.deco-star-left {
+  width: clamp(30px, 8vw, 46px);
+  left: 4%;
+  top: 12%;
+  animation: decoFloat 3.2s ease-in-out infinite;
+}
+
+.deco-heart-right {
+  width: clamp(34px, 9vw, 50px);
+  right: 3%;
+  top: 16%;
+  animation: decoFloat 3.4s ease-in-out infinite 0.3s;
+}
+
+.deco-sticker-left {
+  width: clamp(42px, 11vw, 62px);
+  left: 1%;
+  bottom: 8%;
+  animation: decoWiggle 4.2s ease-in-out infinite;
+}
+
+.deco-sticker-right {
+  width: clamp(42px, 11vw, 62px);
+  right: 1%;
+  bottom: 14%;
+  animation: decoWiggle 4.5s ease-in-out infinite 0.5s;
+}
+
+.deco-love-bottom {
+  width: clamp(36px, 10vw, 54px);
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -6%;
+  animation: decoPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes duoBob {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-6px);
+  }
+}
+
+@keyframes duoBlinkRotate {
+  0%,
+  15%,
+  58%,
+  100% {
+    transform: rotate(0deg) scaleY(1);
+  }
+  8% {
+    transform: rotate(-2deg) scaleY(0.92);
+  }
+  11% {
+    transform: rotate(2deg) scaleY(1);
+  }
+  60% {
+    transform: rotate(-3deg) scaleY(0.84);
+  }
+  62% {
+    transform: rotate(3deg) scaleY(1);
+  }
+}
+
+@keyframes decoFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes decoWiggle {
+  0%,
+  100% {
+    transform: rotate(-6deg) translateY(0);
+  }
+  50% {
+    transform: rotate(4deg) translateY(-4px);
+  }
+}
+
+@keyframes decoPulse {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.08);
+  }
+}
+
+@media (max-width: 520px) {
+  .opening-card {
+    margin-top: 20px;
+    padding: 22px 14px 18px;
+  }
+
+  .top-cast {
+    min-height: 166px;
+  }
+
+  .duo-wrap {
+    width: min(160px, 30vw);
+  }
+}
+
+@media (min-width: 680px) {
+  .opening-card {
+    margin-top: 0;
+    padding: 28px 24px 24px;
+  }
+
+  .top-cast {
+    min-height: 210px;
+  }
+
+  .duo-wrap {
+    width: min(220px, 28vw);
+  }
+}
